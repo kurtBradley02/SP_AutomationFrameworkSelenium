@@ -1,10 +1,11 @@
 Feature: Automation Exercises
 
-  @This
+
   Scenario: Test Case One:  Register User
     Given Test Case One: Pre-Requirements
     When Test Case One: Steps
     Then Test Case One: Post-Requirements
+
 
   Scenario: Test Case Two:  Login User with correct email and password
     Given Test Case Two: Pre-Requirements
@@ -41,22 +42,25 @@ Feature: Automation Exercises
     When Test Case Eight: Steps
     Then Test Case Eight: Post-Requirements
 
+
   Scenario: Test Case Nine: Search Product
     Given Test Case Nine: Pre-Requirements
     When Test Case Nine: Steps
     Then Test Case Nine: Post-Requirements
+
 
   Scenario: Test Case Ten: Verify Subscription in home page
     Given Test Case Ten: Pre-Requirements
     When Test Case Ten: Steps
     Then Test Case Ten: Post-Requirements
 
+
   Scenario: Test Case Eleven: Verify Subscription in Cart page
     Given Test Case Eleven: Pre-Requirements
     When Test Case Eleven: Steps
     Then Test Case Eleven: Post-Requirements
 
-
+  @This
   Scenario: Test Case Twelve: Add Products in Cart
     Given Test Case Twelve: Pre-Requirements
     When Test Case Twelve: Steps
