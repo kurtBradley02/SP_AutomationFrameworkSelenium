@@ -1,12 +1,9 @@
 package com.myprojectnew.cucumber.util;
 
-import com.myprojectnew.cucumber.stepdefinitions.TestCase;
+
 import com.myprojectnew.testng.objects.*;
 import com.myprojectnew.testng.util.DataHandle;
-import com.myprojectnew.cucumber.util.ExtentReportNG;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import io.cucumber.java.Scenario;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,7 +12,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.ITestResult;
+
 import org.testng.log4testng.Logger;
 
 import java.io.IOException;
@@ -72,18 +69,7 @@ public class TestActions {
 
     }
 
-    //TODO: Reports
-    public void initBrowserSession(String testCaseName){
-        reporter = new ExtentReportNG();
-        reporter.setUpCucumberExtent(testCaseName);
-        driver.manage().deleteAllCookies();
-    }
-    public void tearDown(String testCaseName){
-        driver.manage().deleteAllCookies();
-        reporter.extent.createTest(testCaseName);
-        reporter.test.pass("Hello World");
-        reporter.tearDownExtent();
-    }
+
 
     public void endTest(){
 

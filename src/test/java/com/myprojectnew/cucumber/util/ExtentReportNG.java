@@ -11,7 +11,7 @@ public class ExtentReportNG {
     public ExtentTest test;
 
     public void setUpCucumberExtent(String testName) {
-        String reportPath = "/Users/kurtjocson/IdeaProjects/MyProjectNew/cucumber-extent-reports/"+testName+".html";
+        String reportPath = "C:/Users/turks/OneDrive/Desktop/SP_AutomationFrameworkSelenium/cucumber-extent-reports/"+testName+".html";
         ExtentSparkReporter spark = new ExtentSparkReporter(reportPath);
         extent = new ExtentReports();
         extent.attachReporter(spark);

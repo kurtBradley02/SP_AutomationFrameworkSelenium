@@ -1,9 +1,12 @@
 package com.myprojectnew.cucumber.stepdefinitions;
 
+import com.aventstack.extentreports.Status;
+import com.myprojectnew.cucumber.util.Hooks;
 import com.myprojectnew.cucumber.util.TestActions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.testng.log4testng.Logger;
 
@@ -23,25 +26,42 @@ public class TestCase {
 
     @Given("Test Case One: Pre-Requirements")
     public void testCase1PreRequirements(){
-        logger.info("Test Case One: Pre-requirements ");
+        try {
+            logger.info("Test Case One: Pre-requirements");
+            Hooks.reporter.test.log(Status.INFO, "Test Case One: Pre-requirements");
+        }catch(Exception e){
+            Hooks.reporter.test.log(Status.FAIL, "Test Case One: Pre-requirements " + e);
+            Assert.fail("Test Case One: Pre-requirements" + e.getMessage());
+        }
     }
 
     @When("Test Case One: Steps")
-    public void testCase1RegisterUser() throws IOException {
-
-        actions = new TestActions();
-        actions.initDependencies();
-        actions.initHomePage();
-        actions.navigateToLoginSignUpPage();
-        List<String> userInfo = actions.dataHandle.getAllValuesInColumn(0, 1);
-        actions.registerUser(userInfo);
-        actions.deleteAccount();
+    public void testCase1RegisterUser() throws IOException{
+        try {
+            actions = new TestActions();
+            actions.initDependencies();
+            actions.initHomePage();
+            actions.navigateToLoginSignUpPage();
+            List<String> userInfo = actions.dataHandle.getAllValuesInColumn(0, 1);
+            actions.registerUser(userInfo);
+            actions.deleteAccount();
+            Hooks.reporter.test.log(Status.PASS, "Test Case One: Steps");
+        }catch(Exception e){
+            Hooks.reporter.test.log(Status.FAIL, "Test Case One: Steps " + e);
+            Assert.fail("Test Case 01: Steps" + e.getMessage());
+        }
     }
 
     @Then("Test Case One: Post-Requirements")
     public void testCase1PostRequirements() {
-        logger.info("Test Case One: Post-requirements ");
-        actions.endTest();
+        try {
+            logger.info("Test Case One: Post-requirements ");
+            actions.endTest();
+            Hooks.reporter.test.log(Status.INFO, "Test Case One: Post-Requirements ");
+        }catch(Exception e){
+            Hooks.reporter.test.log(Status.FAIL, "Test Case One: Post-Requirements " + e);
+            Assert.fail("Test Case One: Post-requirements" + e.getMessage());
+        }
     }
 
     @Given("Test Case Two: Pre-Requirements")
